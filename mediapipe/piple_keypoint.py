@@ -39,6 +39,11 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
         if results.pose_landmarks:
             # Отрисовка ключевых точек позы
             mp_drawing.draw_landmarks(frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS)
+            # Добавление номеров точек на изображение
+            for idx, landmark in enumerate(results.pose_landmarks.landmark):
+                h, w, _ = frame.shape
+                cx, cy = int(landmark.x * w), int(landmark.y * h)
+                cv2.putText(frame, str(idx), (cx, cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
             # Проверка положения руки и вывод подписи
             if check_hand_up(results.pose_landmarks.landmark):
