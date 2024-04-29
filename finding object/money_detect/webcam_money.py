@@ -34,6 +34,7 @@ while True:
     # param2 - Второй параметр метода детекции кругов (пороговое значение для центров круживает ругов)
     # minRadius - Минимальный радиус искомых кругов
     # maxRadius - Максимальный радиус искомых кругов
+
     circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, dp=1, minDist=100,
                                param1=50, param2=30, minRadius=50, maxRadius=100)
 

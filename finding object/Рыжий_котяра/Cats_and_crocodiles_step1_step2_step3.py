@@ -3,6 +3,7 @@ import cv2
 
 # Чтение изображеий
 image = cv2.imread('catt.jpg')
+#image = cv2.imread('catt.jpg')
 # Переведём изобрадение в другую цветовую модель/схему
 # HSV (англ. Hue, Saturation, Value — тон, насыщенность, значение) 
 hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
